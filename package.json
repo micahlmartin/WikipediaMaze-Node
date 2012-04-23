@@ -1,5 +1,5 @@
 {
-	"name": "Wikipedia Maze",
+	"name": "wikipediamaze",
 	"version": "1.0.0",
 	"author": "Micah Martin <micahlmartin@gmail.com>",
 	"description": "a companion planting guide",
@@ -9,6 +9,7 @@
 			"email": "ackernaut@gmail.com"
 		}
 	],
+	"main": "./lib/index",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/micahlmartin/WikipediaMaze-Node"
@@ -20,7 +21,7 @@
 	"dependencies": {
 		"express": "*",
 		"mongodb": "*",
-		"jade": "*",
+		"jade": "*"
 	},
 	"devDependencies": {
 		"coffee-script": "*",
