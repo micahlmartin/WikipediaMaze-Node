@@ -1,0 +1,29 @@
+{
+	"name": "Wikipedia Maze",
+	"version": "1.0.0",
+	"author": "Micah Martin <micahlmartin@gmail.com>",
+	"description": "a companion planting guide",
+	"contributors": [
+		{
+			"name": "Terry Acker",
+			"email": "ackernaut@gmail.com"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/micahlmartin/WikipediaMaze-Node"
+	},
+	"engines": {
+		"node": "0.6.10",
+		"npm": "1.1.x"
+	},
+	"dependencies": {
+		"express": "*",
+		"mongodb": "*",
+		"jade": "*",
+	},
+	"devDependencies": {
+		"coffee-script": "*",
+		"less": "*"
+	}
+}
