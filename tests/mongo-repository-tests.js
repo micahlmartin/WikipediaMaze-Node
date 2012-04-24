@@ -23,4 +23,12 @@
     });
   };
 
+  exports.getPuzzlesByUserId = function(test) {
+    test.expect(1);
+    return repository.getPuzzlesByUserId(16, null, 0, 50, function(puzzles) {
+      test.equal(2, puzzles.length);
+      return test.done();
+    });
+  };
+
 }).call(this);

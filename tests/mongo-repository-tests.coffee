@@ -16,3 +16,8 @@ exports.getPuzzleByTopicNames = (test) ->
 		test.equal 'Canadian_Bacon', puzzle.endTopic
 		test.done()
 
+exports.getPuzzlesByUserId = (test) ->
+	test.expect 1
+	repository.getPuzzlesByUserId 16, null, 0, 50, (puzzles) ->
+		test.equal 2, puzzles.length
+		test.done()

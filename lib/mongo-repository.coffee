@@ -50,6 +50,17 @@ module.exports =
 					db.close()
 					callback doc
 
+	getPuzzlesByUserId: (userId, sortType, page, pageSize, callback) ->
+		utils.log 'Getting puzzles by userId'
+
+		options = 
+			"limit": pageSize
+			"skip": pageSize * page
+		getCollection 'puzzles', (err, coll, db) ->
+			coll.find( 'createdById': userId, options ).toArray (err, docs) ->
+				db.close()
+				callback docs
+
 ###
 	getAll: (pageNumber, pageCount, callback) ->
 		utils.log 'Returning all plants ' + pageNumber + ' ' + pageCount
