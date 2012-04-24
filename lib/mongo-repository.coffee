@@ -39,13 +39,16 @@ module.exports =
 				db.close()
 				callback doc
 
-	getPuzzleByTopicNames: (startTopicName, endTopicName) ->
+	getPuzzleByTopicNames: (startTopicName, endTopicName, callback) ->
 		utils.log 'Getting puzzle by topic names'
 
 		getCollection 'puzzles', (err, coll, db) ->
 			coll.findOne 
 				'startTopic': eval '/' + startTopicName + '/i'
-				'endTopic': eval '/' + endTopicName + '/i'
+				'endTopic': eval '/' + endTopicName + '/i',
+				(err, doc) ->
+					db.close()
+					callback doc
 
 ###
 	getAll: (pageNumber, pageCount, callback) ->

@@ -6,5 +6,5 @@ module.exports =
 		username: process.env["MONGO_USERNAME"] 
 		password: process.env["MONGO_PASSWORD"]
 		db: process.env["MONGO_DB"] || "wikipediamaze"
-	debugLogging: process.env["DEBUG_LOGGING"] || true,
-	infoLogging: process.env["INFO_LOGGING"] || true
+	debugLogging: process.env["DEBUG_LOGGING"],
+	infoLogging: process.env["INFO_LOGGING"]
