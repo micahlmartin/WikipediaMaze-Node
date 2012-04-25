@@ -53,9 +53,22 @@ module.exports =
 	getPuzzlesByUserId: (userId, sortType, page, pageSize, callback) ->
 		utils.log 'Getting puzzles by userId'
 
+		pageSize = pageSize || 50
+		page = page || 0
+
+		sortType = sortType || 'newest'
+
+		switch sortType.toLowerCase()
+			when 'newest' then sort = ['dateCreated', 'desc']
+			when 'solutions' then sort = ['solutionCount', 'desc']
+			when 'level' then sort = ['level', 'desc']
+			when 'votes' then sort = ['voteCount', 'desc']
+			else sort = ['dateCreated', 'desc']
+
 		options = 
 			"limit": pageSize
 			"skip": pageSize * page
+			"sort": [sort]
 		getCollection 'puzzles', (err, coll, db) ->
 			coll.find( 'createdById': userId, options ).toArray (err, docs) ->
 				db.close()

@@ -21,3 +21,29 @@ exports.getPuzzlesByUserId = (test) ->
 	repository.getPuzzlesByUserId 16, null, 0, 50, (puzzles) ->
 		test.equal 2, puzzles.length
 		test.done()
+
+exports.getPuzzlesByUserId_paging = (test) ->
+	test.expect 2
+	repository.getPuzzlesByUserId 16, null, 1, 1, (puzzles) ->
+		test.equal 1, puzzles.length
+		test.equal 2, puzzles[0].id
+		test.done()
+
+exports.getPuzzlesByUserId_paging_handlesNulls = (test) ->
+	test.expect 2
+	repository.getPuzzlesByUserId 16, null, null, null, (puzzles) ->
+		test.equal 2, puzzles.length
+		test.equal 7, puzzles[0].id
+		test.done()
+
+exports.getPuzzlesByUserId_sorting = (test) ->
+	test.expect 3
+	repository.getPuzzlesByUserId 16, 'newest', 0, 50, (puzzles) ->
+		test.equal 2, puzzles.length
+		test.equal 7, puzzles[0].id
+		test.equal 2, puzzles[1].id
+		test.done()
+
+
+
+
